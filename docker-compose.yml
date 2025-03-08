@@ -1,0 +1,46 @@
+services:
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    env_file:
+      - .env
+    networks:
+      - chatbot_network
+
+  redis:
+    image: redis:alpine
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - chatbot_network
+
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: chatbot
+    ports:
+      - "5432:5432"
+    networks:
+      - chatbot_network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d chatbot"]
+      interval: 10s
+      retries: 5
+
+volumes:
+  postgres_data:
+
+networks:
+  chatbot_network:

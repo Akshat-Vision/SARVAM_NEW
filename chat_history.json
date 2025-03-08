@@ -1,0 +1,14 @@
+{
+    "1": {
+        "user": "hi",
+        "bot": "  Hello! It's nice to meet you. Is there something I can help you with or would you like to chat?"
+    },
+    "2": {
+        "user": "howre you doing mf",
+        "bot": "  I'm just an AI, I don't have personal experiences or emotions, so I don't have feelings or emotions like humans do. However, I'm here to help you with any questions or tasks you may have, so feel free to ask me anything! Is there something specific you'd like to know or discuss?"
+    },
+    "3": {
+        "user": "hey howre you",
+        "bot": "  Hello! I'm doing well, thank you for asking! It's nice to connect with you. Is there anything you'd like to chat about or ask? I'm here to help with any questions you may have."
+    }
+}
